@@ -1,0 +1,75 @@
+.hintCon {
+
+    label {
+        height: 28px;
+        cursor: pointer;
+        margin: 0 !important;
+
+        &:hover .check {
+            background: $borderColor;
+        }
+
+        input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+
+            &:checked~.check {
+                background: $blue;
+            }
+
+            &:checked~.check::after {
+                opacity: 1;
+            }
+
+            &:focus~.check {
+                border: 1px solid $blue;
+            }
+        }
+
+        .check {
+            position: relative;
+            width: 26px;
+            height: 26px;
+            background: $white;
+            border-radius: $radius;
+            border: 1px solid $borderColor;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            box-sizing: content-box;
+            margin-right: 15px;
+            float: $floatLeft;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 7px;
+                right: 10px;
+                width: 6px;
+                height: 11px;
+                border: solid $white;
+                border-width: 0 3px 3px 0;
+                transform: rotate(45deg);
+                box-sizing: border-box;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+        }
+
+        i {
+            float: $floatLeft;
+            height: 28px;
+            line-height: 28px;
+
+            font: {
+                style: normal;
+                weight: normal;
+            }
+
+            cursor: pointer;
+        }
+    }
+
+}

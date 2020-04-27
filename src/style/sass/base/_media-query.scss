@@ -1,0 +1,148 @@
+@import "../helpers/variables";
+@import "../helpers/functions";
+@import "../helpers/mixins";
+
+/* start nav */
+#nav {
+
+    @include tablet {
+        ul {
+            display: inline-block;
+        }
+    }
+}
+
+/* end nav */
+
+
+/* start header */
+header {
+
+    @include tablet {
+        #headerCon {
+
+            #getStartedCon {
+                width: 760px;
+
+                h1 {
+                    font-size: 35px;
+                }
+            }
+
+        }
+    }
+
+}
+
+/* end header */
+
+/* start template carousel */
+#tempCon {
+    @include tablet {
+        #innerTempCon {
+            #carouselHolder {
+                width: 665px;
+            }
+        }
+    }
+}
+
+/* end template carousel */
+
+/* start app container */
+#appCon {
+    @include extralDesk {
+        overflow: hidden;
+        margin: 0 auto;
+        width: 1365px;
+    }
+
+    // print
+    @include print {
+        width: auto !important;
+    }
+}
+
+/* end app container */
+
+/* start form */
+#form {
+
+    @include custom {
+        width: 21cm;
+    }
+
+    @include extralDesk {
+        width: 550px;
+        float: $floatLeft;
+
+        margin: {
+            top: 1cm;
+            right: 20px;
+        }
+    }
+}
+
+
+/* about */
+.about {
+    @include tablet {
+
+        .firstNameCon,
+        .lastNameCon {
+            width: 50% !important;
+        }
+    }
+}
+
+/* end form */
+
+/* start page */
+#pageCon {
+
+    @include custom {
+        display: block;
+    }
+
+    @include extralDesk {
+        float: $floatLeft;
+
+        >h1 {
+            display: none;
+        }
+    }
+
+
+
+    // print
+    @include print {
+        display: block !important;
+        float: none !important;
+
+        >h1 {
+            display: none;
+        }
+    }
+
+    .page {
+        @include print {
+            margin: 0 auto !important;
+            padding: 0 !important;
+        }
+    }
+
+}
+
+/* end page */
+
+// print
+body,
+html {
+    @include print {
+        background-color: $white !important;
+
+        .no-print {
+            display: none !important;
+        }
+    }
+}

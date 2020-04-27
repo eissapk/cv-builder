@@ -1,0 +1,877 @@
+// helpers
+@import "../helpers/variables";
+@import "../helpers/functions";
+@import "../helpers/mixins";
+
+// !components
+/* button */
+@import "../components/buttons";
+/* checkbox */
+@import "../components/checkbox";
+/* select */
+@import "../components/select";
+/* triangle */
+@import "../components/triangles";
+/* validity */
+@import "../components/validation";
+/* page */
+@import "../components/page";
+
+/* Start nav */
+@import "../layout/nav";
+/* End nav */
+
+/* Start header */
+@import "../layout/header";
+/* End header */
+
+/* !Start actualPage */
+
+/* form */
+#form {
+    width: calc(100% - 40px);
+    background-color: $white;
+    margin: 25px auto;
+    padding-bottom: 25px;
+    box-shadow: 0 0 3px 1px $shadow;
+    border-radius: $radius;
+    overflow: hidden;
+
+    /* all sections */
+    .formSection {
+        display: none;
+        animation: nextSection 0.3s ease-in-out;
+
+        h1 {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            text-transform: capitalize;
+            font-size: 20px;
+            background-color: $blue;
+            color: $white;
+        }
+
+        /* all items */
+        .formItem {
+            width: 100%;
+            padding: 25px 20px 0;
+            float: $floatLeft;
+
+            &:first-of-type {
+                padding-top: 0;
+            }
+
+            label {
+                display: block;
+                margin: 5px 0;
+                text-transform: capitalize;
+                font-weight: 600;
+
+                .required {
+                    color: $red;
+
+                    font: {
+                        weight: bold;
+                        size: 20px;
+                    }
+
+                }
+            }
+
+            .inputCon {
+                position: relative;
+
+                input[type="text"],
+                input[type="number"],
+                input[type="email"] {
+                    width: 100%;
+                    height: 40px;
+
+                    padding: {
+                        left: 10px;
+                        right: 40px;
+                    }
+
+                    border: 1px solid $borderColor;
+                    border-radius: $radius;
+                    transition: box-shadow 0.3s ease-in-out;
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: 0 0 0 1px $blue;
+                    }
+                }
+
+                textarea {
+                    width: 100%;
+                    height: 80px;
+                    border: 1px solid $borderColor;
+                    resize: vertical;
+                    padding: 10px 25px 10px 10px;
+                    border-radius: $radius;
+                    transition: box-shadow 0.3s ease-in-out;
+                    line-height: 20px;
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: 0 0 0 1px $blue;
+                    }
+                }
+
+                .validity {
+                    @extend %validity;
+                }
+
+                input:valid~.validity::after,
+                input:invalid~.validity::before {
+                    display: block;
+                }
+
+            }
+
+            .validityTips {
+                padding: 5px;
+                border-radius: $radius;
+                background-color: $borderColor;
+                display: inline-block;
+                margin-top: 5px;
+                line-height: 20px;
+                font-size: 0.9em;
+
+                &::first-letter {
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        /* textarea */
+        .briefCon,
+        .descriptionCon {
+            .inputCon {
+                .textareaValidity {
+                    position: absolute;
+                    width: 25px;
+                    height: 25px;
+                    top: 5px;
+                    right: 1px;
+
+                    span {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $white;
+                        font-weight: bold;
+                        line-height: 25px;
+                        text-align: center;
+                    }
+
+                    .textareaSuccess {
+                        color: $green;
+                        display: none;
+                    }
+
+                    .textareaError {
+                        color: $red;
+                    }
+                }
+            }
+        }
+
+    }
+
+    /* about section */
+    .about {
+
+        /* avatar */
+        .avatarCon {
+            .outerAvatarCon {
+                position: relative;
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;
+                border: 2px solid $blue;
+                border-radius: 50%;
+                box-sizing: content-box;
+
+                &::after {
+                    content: "\002B";
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    width: 25px;
+                    height: 25px;
+                    text-align: center;
+                    line-height: 24px;
+                    color: $white;
+                    font-size: 20px;
+                    font-weight: bold;
+                    border-radius: 50%;
+                    background-color: $blue;
+                    cursor: pointer;
+                }
+
+                .avatarBtns {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: -65px;
+                    width: 55px;
+                    height: 25px;
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: 7.5px;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                        width: 50%;
+                        height: 10px;
+                        background-color: $borderColor;
+                        z-index: -1;
+                    }
+
+                    .avPlusBtn,
+                    .avMinusBtn {
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        width: 25px;
+                        height: 25px;
+                        text-align: center;
+                        line-height: 24px;
+                        color: $subTextColor;
+                        font-size: 20px;
+                        font-weight: 600;
+                        border-radius: 50%;
+                        background-color: $borderColor;
+                    }
+
+                    .avMinusBtn {
+                        right: 30px;
+                    }
+
+                }
+
+                .innerAvatarCon {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    .avatar {
+                        width: 100%;
+                        height: 100%;
+                        background-image: url("../img/avatar.svg");
+                        background-size: 100% auto;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        cursor: pointer;
+                    }
+
+                }
+
+            }
+
+            #file {
+                position: absolute;
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+
+            #avatarTips {
+                position: relative;
+                background-color: $borderColor;
+                padding: 5px;
+                margin-top: 20px;
+                border-radius: $radius;
+                line-height: 20px;
+                font-size: 0.9em;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    left: 0;
+                    right: 0;
+                    top: -19px;
+                    margin: 0 auto;
+                    @extend %upTriangle;
+                    border-bottom-color: $borderColor;
+                }
+            }
+
+        }
+
+    }
+
+    /* experience section */
+    .experience {
+        .innerExperCon {
+            overflow: hidden;
+
+            &:not(:first-of-type) {
+                margin-top: 25px;
+                border-top: 10px solid $borderColor;
+            }
+
+            .delExperSec {
+                float: right;
+                margin: 25px 20px;
+                background-color: $red;
+            }
+
+            .fromCon,
+            .toCon {
+                overflow: hidden;
+
+                >div {
+                    position: relative;
+                    width: 45%;
+                    float: $floatLeft;
+                    top: -1px;
+
+                    &:first-of-type {
+                        margin-right: 10%;
+                    }
+
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        top: 18px;
+                        right: 10px;
+                        width: 8px;
+                        height: 8px;
+                        @extend %downTriangle;
+                        border-width: 8px;
+                    }
+
+                    label {
+                        font-weight: normal;
+                        font-size: 0.9em;
+                    }
+                }
+            }
+
+        }
+
+        /* add more btn */
+        #addExp {
+            margin: {
+                left: 20px;
+                top: 25px;
+            }
+
+            background-color: $green;
+            transition: background 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $subGreen;
+            }
+        }
+
+    }
+
+    /* education section */
+    .education {
+        .innerEduCon {
+            overflow: hidden;
+
+            &:not(:first-of-type) {
+                margin-top: 25px;
+                border-top: 10px solid $borderColor;
+            }
+
+            .delEduSec {
+                float: right;
+                margin: 25px 20px;
+                background-color: $red;
+            }
+
+            .startYearCon,
+            .endYearCon {
+                position: relative;
+                width: 50%;
+
+                &:after {
+                    position: absolute;
+                    content: "";
+                    bottom: 6px;
+                    right: 30px;
+                    width: 8px;
+                    height: 8px;
+                    @extend %downTriangle;
+                    border-width: 8px;
+                }
+            }
+
+            .gradeCon {
+                padding-bottom: 1px;
+            }
+        }
+
+        /* add more btn */
+        #addEdu {
+            margin: {
+                left: 20px;
+                top: 25px;
+            }
+
+            background-color: $green;
+            transition: background 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $subGreen;
+            }
+        }
+
+    }
+
+    /* skills section */
+    .skills {
+
+        .techSkillsCon,
+        .personalSkillsCon {
+            .skillsHint {
+                font: {
+                    size: 0.9em;
+                    weight: normal;
+                }
+            }
+
+            .skillInput {
+                position: relative;
+                width: 100%;
+                height: 40px;
+
+                input {
+                    width: 100%;
+                    height: 100%;
+                    padding-right: 40px;
+                }
+
+                button {
+                    position: absolute;
+                    right: -1px;
+                    top: -1px;
+                    width: 40px;
+                    height: 42px;
+                    background-color: $green;
+                    transition: background 0.3s ease-in-out;
+
+                    &:hover {
+                        background-color: $subGreen;
+                    }
+                }
+            }
+
+            .skillOutput {
+                padding-top: 20px;
+                overflow: hidden;
+
+                span {
+                    background-color: $borderColor;
+                    text-transform: lowercase;
+                    padding: 5px;
+
+                    margin: {
+                        right: 5px;
+                        bottom: 5px;
+                    }
+
+                    border-radius: $radius;
+                    float: $floatLeft;
+                    cursor: pointer;
+                    transition: background 0.3s ease-in-out;
+
+                    &:hover {
+                        background-color: $red;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    /* contact section */
+    .contact {
+        .phoneCon {
+            .hintCon {
+                padding: 10px 0 0;
+            }
+        }
+    }
+
+    /* previous button */
+    #previousBtn {
+        float: $floatLeft;
+        margin: 25px 0 0 20px;
+    }
+
+    /* next button */
+    #nextBtn {
+        float: $floatRight;
+        margin: 25px 20px 0 0;
+    }
+
+    /* submit button */
+    #submitBtn {
+        float: $floatRight;
+        margin: 25px 20px 0 0;
+        background-color: $green;
+        transition: background 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $subGreen;
+        }
+    }
+
+    /* hide btn */
+    .hideBtn {
+        display: none;
+    }
+
+    /* active class */
+    .active {
+        display: block;
+    }
+
+    /* backword */
+    .backword {
+        animation: none;
+        animation: prevSection 0.3s ease-in-out;
+    }
+}
+
+/* template carousel */
+#tempCon {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: $borderColor;
+    z-index: 19;
+
+    #innerTempCon {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        margin: auto;
+
+        h1 {
+            text-align: center;
+
+            font: {
+                size: 20px;
+                weight: 600;
+            }
+
+            text-transform: capitalize;
+        }
+
+        #carouselHolder {
+            position: relative;
+            width: 100%;
+            margin: 25px auto auto;
+            padding: 0 10px;
+
+            .nextSlide,
+            .prevSlide {
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                width: 35px;
+                height: 35px;
+                transform: translateY(-50%);
+                background: $blue;
+                border-radius: 50%;
+                cursor: pointer;
+                z-index: 1;
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                svg {
+                    fill: $white;
+                    position: relative;
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+
+            .nextSlide {
+                left: auto;
+                right: 5px;
+            }
+
+            #carousel {
+                width: 100%;
+                overflow: auto;
+                white-space: nowrap;
+
+                &:active {
+                    cursor: grab;
+                }
+
+                &::-webkit-scrollbar {
+                    height: 3px !important;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: $subTextColor;
+                    border-radius: $radius;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: $white;
+                    border-radius: $radius;
+                }
+
+                div {
+                    position: relative;
+                    display: inline-block;
+                    margin-right: 25px;
+                    overflow: hidden;
+
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+
+                    .overlay {
+                        @extend %overlay;
+                        background-color: rgba(black, 0.3);
+                        left: 100% !important;
+                        border-radius: $radius;
+                        transition: transform 0.3s ease 0.3s;
+
+                        button {
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            bottom: 20px;
+                            margin: auto;
+                            display: block;
+                            width: auto;
+                            height: auto;
+                            padding: 5px 20px;
+                            user-select: none;
+                        }
+                    }
+
+                    &:hover .overlay {
+                        transform: translateX(-100%);
+                    }
+
+                    img {
+                        width: 320px;
+                        vertical-align: bottom;
+                        border-radius: $radius;
+                        box-shadow: 0 0 3px 1px $shadow;
+                        user-select: none;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+/* popup */
+#popupLayer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgba($mainTextColor, 0.7);
+    z-index: 10;
+    display: none;
+
+    #popup {
+        position: absolute;
+        top: 50%;
+        max-width: 250px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: translateY(-50%);
+        background-color: $white;
+        padding: 20px;
+        border-radius: $radius;
+        box-shadow: 0 0 12px 6px $shadow;
+
+        #closePopup {
+            top: -10px;
+            right: -10px;
+
+            &:hover {
+                background-color: $red;
+            }
+        }
+
+        button:not(#closePopup) {
+            min-width: 120px;
+            display: block;
+            margin: auto;
+            box-sizing: content-box;
+            padding: 5px 10px;
+        }
+
+        #downloadCV {
+            background-color: $green;
+            transition: background 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $subGreen;
+            }
+        }
+
+        p {
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+            color: $subTextColor;
+        }
+    }
+}
+
+/* donate */
+#donateLayer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: $borderColor;
+    z-index: 20;
+    display: none;
+
+    #closeDonate {
+        top: 20px;
+        right: 20px;
+
+        &:hover {
+            background-color: $red;
+        }
+    }
+
+    #donate {
+        position: absolute;
+        top: 50%;
+        max-width: 250px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: translateY(-50%);
+        background-color: $white;
+        padding: 20px;
+        border-radius: $radius;
+        box-shadow: 0 0 3px 1px $shadow;
+
+        p {
+            line-height: 25px;
+            color: $subTextColor;
+            font-weight: bold;
+        }
+
+        a {
+            max-width: 100px;
+            display: block;
+            margin: auto;
+            box-sizing: content-box;
+            padding: 15px 10px;
+            background-color: $green;
+            text-decoration: none;
+            color: $white;
+            text-align: center;
+            text-transform: capitalize;
+            font-weight: 600;
+            margin-top: 15px;
+            border-radius: $radius;
+            transition: background 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $subGreen;
+            }
+        }
+    }
+
+
+
+}
+
+/* loader */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: $borderColor;
+    z-index: 50;
+
+    >div {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 50px;
+        height: 50px;
+        border-right: 3px solid $blue;
+        border-radius: 50%;
+        animation: loader 0.5s linear infinite;
+    }
+}
+
+/* keyframes */
+@keyframes nextSection {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes prevSection {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes loader {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* !End actualPage */
+
+/* Start footer */
+@import "../layout/footer";
+/* End footer */

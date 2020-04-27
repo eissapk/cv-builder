@@ -1,0 +1,22 @@
+//- popup
+div(id="popupLayer", class="no-print")
+    #popup
+        //- close btn
+        button(type="button", id="closePopup", class="clickClosePopup xBtn")
+            span.clickClosePopup
+            span.clickClosePopup
+        //- actual btns
+        button(type="button", id="downloadCV") download CV
+        a(href="javascript:void(0)", id="a", download="CV.html", style="display:none;")
+        p or
+        button(type="button", id="printCV") print CV
+
+//- donation
+div(id="donateLayer", class="no-print")
+    //- close btn
+    button(type="button", id="closeDonate", class="clickCloseDonate xBtn")
+        span.clickCloseDonate
+        span.clickCloseDonate
+    #donate
+        p If you like this app, please support me by a small donation for adding more features to the app.
+        a(href="https://www.paypal.me/eissapk", target="_blank") donate now

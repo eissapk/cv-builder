@@ -1,0 +1,60 @@
+div(class="about formSection active")
+    
+    // heading
+    h1 about
+
+    // avatar
+    div(class="avatarCon formItem")
+        div(class="outerAvatarCon clickAvatar")
+            //- btns
+            div(class="avatarBtns")
+                button(type='button', class="avPlusBtn", title="Zoom In") +
+                button(type='button', class="avMinusBtn", title="Zoom Out") -
+            //- img
+            div(class="innerAvatarCon clickAvatar")
+                div(class="avatar clickAvatar", title="Upload Your Avatar") 
+
+        input(type="file", id="file", accept="image/*")
+        #avatarTips Image should be square (e.g. 200 x 200). #[br] Image should be cropped so it only contains your head and the top of your shoulders.
+
+    // first name
+    div(class="firstNameCon formItem")
+        label first name #[span.required *]
+        .inputCon
+            input(type="text", class="firstName", placeholder="e.g. John", pattern="[a-zA-Z|\\s]{2,20}", autocomplete="off", required)
+            span(class="validity")
+        .validityTips name must be letters and 2-20 characters in length.
+
+    // last name
+    div(class="lastNameCon formItem")
+        label last name #[span.required *]
+        .inputCon
+            input(type="text", class="lastName", placeholder="e.g. Doe", pattern="[a-zA-Z|\\s]{2,20}", autocomplete="off", required)
+            span(class="validity")
+        .validityTips name must be letters and 2-20 characters in length.
+
+    // job title
+    div(class="jobTitleCon formItem")
+        label job title #[span.required *]
+        .inputCon
+            input(type="text", class="jobTitle", placeholder="e.g. Web Designer", pattern="[\\w|\\W|\\s]{4,30}", autocomplete="off", required)
+            span(class="validity")
+        .validityTips title must be 4-30 characters in length.
+
+    // location
+    div(class="locationCon formItem")
+        label location #[span.required *]
+        .inputCon
+            input(type="text", class="location", placeholder="e.g. London, United Kingdom", pattern="[\\w|\\W|\\s]{2,30}", autocomplete="off", required)
+            span(class="validity")
+        .validityTips location must be 2-30 characters in length.
+
+    // brief
+    div(class="briefCon formItem")
+        label brief #[span.required *]
+        .inputCon
+            textarea(placeholder="e.g. Hello, I'm john doe, I'm a professional web designer with 2 years of experience.", class="brief", autocomplete="off", required)
+            div.textareaValidity
+                span.textareaSuccess &#10004;
+                span.textareaError &#10006;
+        .validityTips brief must be 40-250 characters in length.

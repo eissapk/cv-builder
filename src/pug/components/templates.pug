@@ -1,0 +1,28 @@
+#tempCon
+
+    #innerTempCon
+        //- headline
+        h1 choose template
+
+            //- carousel
+        #carouselHolder
+            // next button
+            button(type="button", class="nextSlide clickNextSlide") 
+                <svg class="clickNextSlide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                <path class="clickNextSlide" d="M79.093 0L48.907 30.187 146.72 128l-97.813 97.813L79.093 256l128-128z"></path>
+                </svg>
+
+            // previous button
+            button(type="button", class="prevSlide clickPrevSlide") 
+                <svg class="clickPrevSlide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                    <path class="clickPrevSlide" d="M207.093 30.187L176.907 0l-128 128 128 128 30.186-30.187L109.28 128z"></path>
+                </svg>
+
+            #carousel
+                - for(var i = 1; i <= 3; i++)
+                    div 
+                        img(src="img/temp_" + i + ".jpg", alt="template-" + i)
+                        .overlay
+                            button(type="button", class="designBtn designBtn" + i) edit template
+
+

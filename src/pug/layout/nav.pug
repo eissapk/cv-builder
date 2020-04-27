@@ -1,0 +1,10 @@
+nav(id="nav", class="no-print")
+    //- logo
+    div#logo
+        a(href="index.html")
+            img(src="img/logo.svg", alt="logo") 
+            span CV Builder
+    ul
+        //- btns
+        each val, index in navList
+            li #[a(href="javascript:void(0)", data=index)= val]

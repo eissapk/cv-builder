@@ -1,0 +1,64 @@
+div(class="contact formSection")
+    
+    // heading
+    h1 contact
+
+    // phone
+    div(class="phoneCon formItem")
+        label phone #[span.required *]
+        .inputCon
+            input(type="number", class="phone", placeholder="e.g. xxxx xxx xxxx", autocomplete="off", required)
+        // hint
+        div(class="hintCon formItem")
+            label
+                input(type="checkbox", id="hasWhats")
+                span.check
+                i contains whatsapp
+
+    // email
+    div(class="emailCon formItem")
+        label email #[span.required *]
+        .inputCon
+            input(type="email", class="mail", placeholder="e.g. email@example.com", autocomplete="off", required)
+
+    // website
+    div(class="websiteCon formItem")
+        label website
+        .inputCon
+            input(type="text", class="website opt", placeholder="e.g. www.example.com", autocomplete="off")
+
+    // linkedin
+    div(class="linkedinCon formItem")
+        label linkedin
+        .inputCon
+            input(type="text", class="linkedin opt", placeholder="e.g. linkedin.com/in/user", autocomplete="off")
+
+    // twitter
+    div(class="twitterCon formItem")
+        label twitter
+        .inputCon
+            input(type="text", class="twitter opt", placeholder="e.g. twitter.com/user", autocomplete="off")
+
+    // behance
+    div(class="behanceCon formItem")
+        label behance
+        .inputCon
+            input(type="text", class="behance opt", placeholder="e.g. behance.net/user", autocomplete="off")
+
+    // dribbble
+    div(class="dribbbleCon formItem")
+        label dribbble
+        .inputCon
+            input(type="text", class="dribbble opt", placeholder="e.g. dribbble.com/user", autocomplete="off")
+
+    // github
+    div(class="githubCon formItem")
+        label github
+        .inputCon
+            input(type="text", class="github opt", placeholder="e.g. github.com/user", autocomplete="off")
+
+    // stackoverflow
+    div(class="stackCon formItem")
+        label stackoverflow
+        .inputCon
+            input(type="text", class="stack opt", placeholder="e.g. stackoverflow.com/u/123456", autocomplete="off")

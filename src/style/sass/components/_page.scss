@@ -1,0 +1,1040 @@
+#pageCon {
+    display: none;
+
+    >h1 {
+        max-width: 200px;
+        background-color: $green;
+        color: $white;
+        padding: 10px 0;
+        border-radius: $radius;
+
+        font: {
+            size: 20px;
+            weight: 600;
+        }
+
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 37.5px;
+    }
+
+    /* design one */
+    .page {
+        width: 21cm;
+        min-height: 29.7cm;
+        padding: 0.5cm;
+        margin: 1cm auto;
+        background: $white;
+        font-family: Helvetica, Arial, sans-serif;
+
+        /* upper */
+        .upperP {
+            width: 100%;
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: auto 1fr;
+
+            /* img */
+            .imgP {
+                width: 175px;
+
+                .innerImgP {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    background-image: url('../img/avatar.svg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center center;
+                    filter: grayscale(1);
+                }
+            }
+
+            /* profile */
+            .profileP {
+
+                /* upper */
+                .upperProfileP {
+                    overflow: hidden;
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    grid-template-columns: auto auto;
+                    align-items: end;
+
+                    // name
+                    .nameP {
+                        text-transform: uppercase;
+
+                        .firstNameP {
+                            font-size: 35px;
+                            color: $subTextColor;
+                        }
+
+                        .lastNameP {
+                            font-weight: bold;
+                            font-size: 40px;
+                        }
+                    }
+
+                    // contact
+                    .contactP {
+
+                        ul {
+                            list-style-type: none;
+
+                            li {
+                                overflow: hidden;
+                                font-weight: bold;
+                                line-height: 25px;
+
+                                span,
+                                i {
+                                    float: $floatLeft;
+                                    font-style: normal;
+                                }
+
+                                .span {
+                                    width: 75px;
+                                    text-transform: capitalize;
+                                }
+
+                                i {
+                                    margin-right: 5px;
+                                }
+
+                                .phoneP,
+                                .emailP,
+                                .locationP,
+                                .whatsP {
+                                    color: $subTextColor;
+                                }
+
+                                .locationP {
+                                    text-transform: capitalize;
+                                }
+
+                                .whatsP {
+                                    margin-left: 5px;
+                                    font-size: 0.9em;
+                                    font-weight: normal;
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                /* middle */
+                .middleProfileP {
+                    position: relative;
+                    margin: 20px 0;
+                    overflow: hidden;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background-color: $subTextColor;
+                    }
+
+                    .jobP {
+                        position: relative;
+                        padding-right: 10px;
+                        text-transform: uppercase;
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: $subTextColor;
+                        float: $floatLeft;
+                        background-color: $white;
+                        z-index: 1;
+                    }
+                }
+
+                /* lower */
+                .lowerProfileP {
+                    .desc {
+                        line-height: 25px;
+                        color: $subTextColor;
+                        word-break: break-word;
+
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        /* lower */
+        .lowerP {
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 175px 1fr;
+            margin-top: 25px;
+
+            /* left col */
+            .leftP {
+                position: relative;
+                width: 100%;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 12.5px;
+                    width: 1px;
+                    height: 100%;
+                    background-color: $subTextColor;
+
+                }
+
+                .skillsP {
+                    width: calc(100% - 13.5px);
+
+                    h2 {
+                        text-transform: uppercase;
+                        font-size: 25px;
+                    }
+
+                    .techP,
+                    .personalP {
+                        width: 100%;
+                        overflow: hidden;
+
+                        h3 {
+                            text-transform: capitalize;
+                            font-size: 18px;
+                            margin: 25px 0 10px 0;
+                            color: $subTextColor;
+                        }
+
+                        .tech-itemsP,
+                        .personal-itemsP {
+                            span {
+                                float: $floatLeft;
+                                padding: 5px;
+                                border-radius: $radius;
+                                border: 1px solid $mainTextColor;
+                                margin: 0 5px 5px 0;
+                            }
+                        }
+
+                        .personal-itemsP {
+                            text-transform: capitalize;
+                        }
+
+                    }
+
+                }
+            }
+
+            /* right col */
+            .rightP {
+                width: 100%;
+
+                /* contact */
+                .contactOpt {
+                    margin-top: 25px;
+
+                    >h2 {
+                        text-transform: uppercase;
+                        font-size: 25px;
+                    }
+
+                    .contactCon {
+                        margin-top: 20px;
+
+                        ul {
+                            list-style-type: none;
+
+                            li {
+                                overflow: hidden;
+                                line-height: 25px;
+                                display: none;
+
+                                span {
+                                    float: $floatLeft;
+                                    font-weight: bold;
+                                    color: $subTextColor;
+                                }
+
+                                .headP {
+                                    color: $mainTextColor;
+                                    margin-right: 5px;
+                                    text-transform: capitalize;
+                                }
+                            }
+
+                        }
+
+
+                    }
+                }
+
+            }
+        }
+
+        /* education */
+        .eduP {
+            >h2 {
+                text-transform: uppercase;
+                font-size: 25px;
+            }
+
+            .eduCon {
+                margin-top: 20px;
+
+                >div {
+                    overflow: hidden;
+                    font-weight: bold;
+                    text-transform: capitalize;
+                }
+
+                div:nth-of-type(1) {
+
+                    .edu-school {
+                        font-size: 20px;
+                    }
+                }
+
+                div:nth-of-type(2) {
+                    margin-top: 5px;
+
+                    span {
+                        float: $floatLeft;
+                        color: $subTextColor;
+                    }
+
+                    .edu-split {
+                        margin: 0 5px;
+                        text-transform: lowercase;
+                        color: $mainTextColor;
+                    }
+
+                    .edu-grade {
+                        font-weight: normal;
+                        margin-left: 5px;
+                    }
+
+                }
+
+                div:nth-of-type(3) {
+                    margin-top: 5px;
+
+                    .edu-period {
+                        color: $subTextColor;
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
+
+        /* experience */
+        .experP {
+            margin-top: 25px;
+
+            >h2 {
+                text-transform: uppercase;
+                font-size: 25px;
+
+            }
+
+            .experCon {
+                margin-top: 20px;
+
+                >div {
+                    overflow: hidden;
+                }
+
+                div:nth-of-type(1) {
+                    span {
+                        height: 30px;
+                        line-height: 30px;
+                        float: $floatLeft;
+                    }
+
+                    .exper-role {
+                        font-size: 20px;
+                        font-weight: bold;
+                        text-transform: capitalize;
+                        margin-right: 20px;
+                    }
+
+                    .exper-period {
+                        color: $subTextColor;
+                        font-size: 0.9em;
+                        font-weight: bold;
+                        text-transform: capitalize;
+                    }
+                }
+
+                div:nth-of-type(2) {
+                    margin-top: 5px;
+
+                    .exper-firm {
+                        font-size: 18px;
+                        font-weight: bold;
+                        text-transform: capitalize;
+                        color: $subTextColor;
+                    }
+                }
+
+                div:nth-of-type(3) {
+                    margin-top: 5px;
+
+                    .exper-desc {
+                        line-height: 25px;
+                        color: $subTextColor;
+                        word-break: break-word;
+
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    /* design two */
+    .design_2 {
+
+        // left
+        .leftCol {
+            position: relative;
+            width: 300px;
+            float: $floatLeft;
+            padding: 0 20px;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 2px;
+                height: 100%;
+                background-color: $mainTextColor;
+            }
+
+            // avatar
+            .imgP {
+                width: 100%;
+                margin-top: 20px;
+
+                .innerImgP {
+                    width: 150px;
+                    height: 150px;
+                    margin: 0 auto;
+                    border-radius: 50%;
+                    border: 2px solid $mainTextColor;
+                    background-image: url('../img/avatar.svg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center center;
+                    filter: grayscale(1);
+                }
+            }
+
+            // name
+            .nameP {
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+
+                span {
+                    font-size: 25px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+
+                .lastNameP {
+                    margin-left: 5px;
+                }
+            }
+
+            // role
+            .jobP {
+                position: relative;
+                margin-top: 20px;
+                font-size: 18px;
+                font-weight: bold;
+                text-transform: capitalize;
+                text-align: center;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: -10px;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    width: 75px;
+                    height: 2px;
+                    background-color: $mainTextColor
+                }
+            }
+
+            // location
+            .locationPWrapper {
+                margin-top: 20px;
+                text-align: center;
+                width: 100%;
+                text-transform: capitalize;
+
+                .locationPIcon {
+                    margin-right: 5px;
+
+                    svg {
+                        width: 25px;
+                        height: 25px;
+                        vertical-align: bottom;
+                    }
+                }
+
+            }
+
+            // about me
+            .lowerProfileP {
+                width: 100%;
+                margin-top: 40px;
+
+                h1 {
+                    position: relative;
+                    font-size: 25px;
+                    text-transform: uppercase;
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        bottom: -10px;
+                        left: 0;
+                        width: 50px;
+                        height: 2px;
+                        background-color: $mainTextColor
+                    }
+                }
+
+                p {
+                    color: $subTextColor;
+                    line-height: 25px;
+                    word-break: break-word;
+                    margin-top: 20px;
+
+                    &::first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            // personal skills 
+            .personalP {
+                width: 100%;
+                margin-top: 40px;
+
+                h1 {
+                    position: relative;
+                    font-size: 25px;
+                    text-transform: uppercase;
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        bottom: -10px;
+                        left: 0;
+                        width: 50px;
+                        height: 2px;
+                        background-color: $mainTextColor
+                    }
+                }
+
+                .personal-itemsP {
+                    margin-top: 20px;
+
+                    >span {
+                        position: relative;
+                        display: block;
+                        font-size: 20px;
+                        text-transform: capitalize;
+                        margin-bottom: 10px;
+                        color: $subTextColor;
+
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            bottom: -5px;
+                            left: 0;
+                            width: 25px;
+                            height: 2px;
+                            background-color: $subTextColor
+                        }
+                    }
+                }
+            }
+
+            // contact
+            .contactP {
+                width: 100%;
+                margin-top: 40px;
+
+                h1 {
+                    position: relative;
+                    font-size: 25px;
+                    text-transform: uppercase;
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        bottom: -10px;
+                        left: 0;
+                        width: 50px;
+                        height: 2px;
+                        background-color: $mainTextColor
+                    }
+                }
+
+                ul {
+                    margin-top: 20px;
+                    list-style-type: none;
+                    float: $floatLeft;
+
+                    li {
+                        float: $floatLeft;
+                        margin-bottom: 10px;
+                        width: 100%;
+                        display: none;
+
+                        span {
+                            float: $floatLeft;
+                            height: 25px;
+                            line-height: 25px;
+                            word-break: break-word;
+                            font-size: 0.9em;
+                            color: $subTextColor;
+                        }
+
+                        .iconPCon {
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 5px;
+
+                            svg {
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                        }
+
+                        .whatsP {
+                            display: none;
+                            margin-left: 5px;
+                        }
+                    }
+
+                    li:nth-of-type(1),
+                    li:nth-of-type(2) {
+                        display: block;
+                    }
+
+                }
+            }
+
+        }
+
+        // right
+        .rightCol {
+            position: relative;
+            width: calc(100% - 300px);
+            padding-left: 40px;
+            float: $floatLeft;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -2px;
+                width: 2px;
+                height: 100%;
+                background-color: $mainTextColor;
+            }
+
+            // education
+            .eduP {
+                position: relative;
+                padding-left: 40px;
+                margin-top: 20px;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    top: 60px;
+                    left: 0;
+                    width: 2px;
+                    height: calc(100% - 60px);
+                    background-color: $mainTextColor;
+                }
+
+                .expHead {
+                    position: relative;
+
+                    svg {
+                        position: absolute;
+                        top: -3.5px;
+                        left: -56.5px;
+                        width: 35px;
+                        height: 35px;
+                        fill: $mainTextColor;
+                    }
+
+                    span {
+                        text-transform: uppercase;
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+                }
+
+                .eduCon {
+                    position: relative;
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        top: 6.5px;
+                        left: -44px;
+                        width: 10px;
+                        height: 10px;
+                        background-color: $mainTextColor;
+                        border-radius: 50%;
+                    }
+
+                }
+
+
+
+            }
+
+            // experience
+            .experP {
+                position: relative;
+                padding-left: 40px;
+                margin-top: 40px;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    top: 60px;
+                    left: 0;
+                    width: 2px;
+                    height: calc(100% - 60px);
+                    background-color: $mainTextColor;
+                }
+
+                .expHead {
+                    position: relative;
+
+                    svg {
+                        position: absolute;
+                        top: -3.5px;
+                        left: -56.5px;
+                        width: 35px;
+                        height: 35px;
+                        fill: $mainTextColor;
+                    }
+
+                    span {
+                        text-transform: uppercase;
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+                }
+
+                .experCon {
+                    position: relative;
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        top: 10px;
+                        left: -44px;
+                        width: 10px;
+                        height: 10px;
+                        background-color: $mainTextColor;
+                        border-radius: 50%;
+                    }
+
+                }
+            }
+
+            // technical skills
+            .techP {
+                padding-left: 40px;
+                margin-top: 40px;
+
+                .expHead {
+                    position: relative;
+
+                    svg {
+                        position: absolute;
+                        top: -3.5px;
+                        left: -56.5px;
+                        width: 35px;
+                        height: 35px;
+                        fill: $mainTextColor;
+                    }
+
+                    span {
+                        text-transform: uppercase;
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+                }
+
+                .tech-itemsP {
+                    margin-top: 20px;
+                    overflow: hidden;
+
+                    span {
+                        float: $floatLeft;
+                        padding: 5px;
+                        margin-right: 5px;
+                        margin-bottom: 5px;
+                        border: 1px solid $subTextColor;
+                        border-radius: $radius;
+                        color: $subTextColor;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    /* design three */
+    .design_3 {
+
+        // left
+        .leftCol {
+            width: calc(100% - 300px);
+            float: $floatLeft;
+            padding-right: 40px;
+
+            // header
+            .headerPCon {
+                width: 100%;
+                overflow: hidden;
+
+                // avatar
+                .imgP {
+                    width: 100px;
+                    height: 100px;
+                    float: $floatLeft;
+                    margin-right: 15px;
+
+                    .innerImgP {
+                        width: 100%;
+                        height: 100%;
+                        margin: 0 auto;
+                        border-radius: $radius;
+                        background-image: url('../img/avatar.svg');
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center center;
+                        filter: grayscale(1);
+                    }
+                }
+
+                // name job container
+                .name-job-con {
+                    float: $floatLeft;
+                    margin-top: 23px;
+
+                    // name
+                    .nameP {
+
+                        span {
+                            font-size: 25px;
+                            text-transform: uppercase;
+                            font-weight: bold;
+                        }
+
+                        .lastNameP {
+                            margin-left: 5px;
+                        }
+                    }
+
+                    // job
+                    .jobP {
+                        margin-top: 5px;
+                        font-size: 18px;
+                        font-weight: bold;
+                        text-transform: capitalize;
+                        color: $subTextColor;
+                    }
+                }
+
+            }
+
+            // about me
+            .lowerProfileP {
+                width: 100%;
+                margin-top: 20px;
+
+                h1 {
+                    font-size: 25px;
+                    text-transform: capitalize;
+                }
+
+                p {
+                    color: $subTextColor;
+                    line-height: 25px;
+                    word-break: break-word;
+                    margin-top: 5px;
+
+                    &::first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            // education
+            .eduP {
+                margin-top: 30px;
+
+                .expHead {
+                    span {
+                        text-transform: capitalize;
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+                }
+
+            }
+
+            // experience
+            .experP {
+                margin-top: 30px;
+
+                .expHead {
+
+                    span {
+                        text-transform: capitalize;
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+                }
+
+            }
+
+        }
+
+        // right
+        .rightCol {
+            width: 300px;
+            float: $floatLeft;
+
+            // contact
+            .contactP {
+                width: 100%;
+                overflow: hidden;
+                margin-top: 120px;
+
+                h1 {
+                    font-size: 25px;
+                    text-transform: capitalize;
+                }
+
+                ul {
+                    margin-top: 5px;
+                    list-style-type: none;
+                    float: $floatLeft;
+
+                    li {
+                        float: $floatLeft;
+                        margin-bottom: 5px;
+                        width: 100%;
+                        display: none;
+
+                        span {
+                            float: $floatLeft;
+                            height: 25px;
+                            line-height: 25px;
+                            word-break: break-word;
+                            font-size: 0.9em;
+                            color: $subTextColor;
+                        }
+
+                        .whatsP {
+                            display: none;
+                            margin-left: 5px;
+                        }
+
+                        .locationP {
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    li:nth-of-type(1),
+                    li:nth-of-type(2),
+                    li:nth-of-type(3) {
+                        display: block;
+                    }
+
+                }
+            }
+
+            // technical skills
+            .techP {
+                margin-top: 30px;
+
+                .expHead {
+                    span {
+                        text-transform: capitalize;
+                        font-size: 25px;
+                        font-weight: bold;
+                    }
+                }
+
+                .tech-itemsP {
+                    margin-top: 10px;
+                    overflow: hidden;
+
+                    span {
+                        margin-bottom: 5px;
+                        color: $subTextColor;
+                        display: block;
+                    }
+                }
+            }
+
+            // personal skills 
+            .personalP {
+                margin-top: 30px;
+
+                h1 {
+                    font-size: 25px;
+                    text-transform: capitalize;
+                }
+
+                .personal-itemsP {
+                    margin-top: 10px;
+
+                    >span {
+                        margin-bottom: 5px;
+                        color: $subTextColor;
+                        display: block;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}

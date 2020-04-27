@@ -1,0 +1,22 @@
+div(class="skills formSection")
+    
+    // heading
+    h1 skills
+
+    // technical Skills
+    div(class="techSkillsCon formItem")
+        label technical #[span.required *] #[span.skillsHint (min: 3 skills)]
+        .inputCon
+            .skillInput
+                input(type="text", id="techInput", placeholder="e.g. Data Analysis", autocomplete="off")
+                button(type="button", id="addTech") add
+        .skillOutput
+
+    // personal Skills
+    div(class="personalSkillsCon formItem")
+        label personal
+        .inputCon
+            .skillInput
+                input(type="text", id="personalInput", placeholder="e.g. Motivated", autocomplete="off")
+                button(type="button", id="addPersonal") add
+        .skillOutput

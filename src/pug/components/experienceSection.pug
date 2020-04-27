@@ -1,0 +1,74 @@
+div(class="experience formSection")
+    
+    // heading
+    h1 experience
+
+    div(class="innerExperCon innerExperCon0")
+        // role
+        div(class="roleCon formItem")
+            label role / job title #[span.required *]
+            .inputCon
+                input(type="text", class="role role0" placeholder="e.g. Web Designer", pattern="[\\w|\\W|\\s]{4,40}", autocomplete="off", required)
+                span(class="validity")
+            .validityTips title must be 4-40 characters in length.
+
+        // company
+        div(class="companyCon formItem")
+            label company name #[span.required *]
+            .inputCon
+                input(type="text", class="company company0" placeholder="e.g. Google, Self-Employed", pattern="[\\w|\\W|\\s]{2,40}", autocomplete="off", required)
+                span(class="validity")
+            .validityTips name must be 2-40 characters in length.
+
+        // hint
+        div(class="hintCon formItem")
+            label
+                input(type="checkbox", class="currentlyWork currentlyWork0")
+                span.check
+                i i currently work here.
+
+        // from
+        div(class="fromCon formItem")
+            label Start Date #[span.required *]
+            // month
+            div
+                select(required, class="startM startM0")
+                    option(value, disabled, selected) Month
+                    each val in months
+                        option(value=val)= val
+
+            // year
+            div
+                select(required, class="startY startY0")
+                    option(value, disabled, selected) Year
+                    - for(var i = 2020; i >= 1961; i--)
+                        option(value=i)= i
+
+        // to
+        div(class="toCon formItem")
+            label End Date #[span.required *]
+            // month
+            div
+                select(required, class="endM endM0")
+                    option(value, disabled, selected) Month
+                    each val in months
+                        option(value=val)= val
+            // year
+            div
+                select(required, class="endY endY0")
+                    option(value, disabled, selected) Year
+                    - for(var i = 2020; i >= 1961; i--)
+                        option(value=i)= i 
+
+        // description
+        div(class="descriptionCon formItem")
+            label description #[span.required *]
+            .inputCon
+                textarea(class="experDesc experDesc0", placeholder="e.g. Building websits from scratch.", autocomplete="off", required)
+                div.textareaValidity
+                    span.textareaSuccess &#10004;
+                    span.textareaError &#10006;
+            .validityTips description must be 40-250 characters in length.
+
+    // add other experience
+    button(type="button", id="addExp") add more

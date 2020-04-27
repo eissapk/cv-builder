@@ -1,0 +1,473 @@
+//- START HELPERS
+include ../helpers/variables
+include ../helpers/mixins
+//- END HELPERS
+
+//- START SIGNATURE
+include ../components/signature
+//- END SIGNATURE
+doctype
+html(lan="en" dir="ltr")
+    head
+        meta(charset="UTF-8")
+        title CV Builder
+        link(rel="shortcut icon" href="img/favicon.ico" type="image/x-icon")
+        meta(name="theme-color" content="#ffffff")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+        //- START SEO
+        include ../components/seo
+        //- END SEO
+
+        //- START CSS
+        include ../components/style
+        //- END CSS
+
+        //- START HTMLSHIV
+        <!-- [if lt IE 9]>
+        script(src="script/html5shiv.js")
+        <![endif] -->
+        //- END HTMLSHIV
+
+    body
+
+        // !START MAIN WRAPPER
+        main
+
+            // start popup
+            include ../components/popup
+            // end popup
+
+            // start loader
+            #loader
+                div
+            // end loader
+
+            // start header
+            include ../layout/header
+            // end header
+
+            // start template carousel
+            include ../components/templates
+            // end template carousel
+
+            // start nav bar
+            include ../layout/nav
+            // end nav bar
+            
+            #appCon
+                // start form
+                form(id="form", class="no-print")
+                    // about section
+                    include ../components/aboutSection
+                    // education section
+                    include ../components/educationSection
+                    // experience section
+                    include ../components/experienceSection
+                    // skills section
+                    include ../components/skillsSection
+                    // contact section
+                    include ../components/contactSection
+
+                    // previous button
+                    button(type="button", id="previousBtn", class="hideBtn") previous
+                    // next button
+                    button(type="button", id="nextBtn") next
+                    // submit button
+                    button(type="submit", id="submitBtn", class="hideBtn") done
+                // end form
+
+                // start page
+                #pageCon
+                    h1 CV Preview
+
+                    //- a4 page container
+                    // design 1
+                    div(class="page design_1")
+
+                        //- upper section
+                        .upperP
+
+                            //- img
+                            .imgP
+                                .innerImgP
+
+                            //- profile
+                            .profileP
+
+                                //- upper
+                                .upperProfileP
+                                    //- name
+                                    .nameP
+                                        .firstNameP john
+                                        .lastNameP doe
+
+                                    //- contact
+                                    .contactP
+                                        ul
+                                            li #[span.span phone] #[i :] #[span.phoneP xxxx xxx xxxx] #[span.whatsP (has whatsapp)]
+                                            li #[span.span email] #[i :] #[span.emailP example@email.com]
+                                            li #[span.span location] #[i :] #[span.locationP London, United Kingdom]
+
+                                //- middle
+                                .middleProfileP
+                                    .jobP web designer
+
+                                //- lower
+                                .lowerProfileP
+                                    p.desc Hello, I'm john doe, I'm a professional web designer with 2 years of experience.
+                        
+                        //- lower section
+                        .lowerP
+
+                            //- left col
+                            .leftP
+
+                                //- skills
+                                .skillsP
+                                    h2 skills
+
+                                    .techP
+                                        h3 technical 
+                                        .tech-itemsP
+                                            span html
+                                            span css
+                                            span javascript
+
+                                    .personalP
+                                        h3 personal
+                                        .personal-itemsP
+
+                            //- right col
+                            .rightP 
+
+                                //- edu section
+                                .eduP
+
+                                    h2 education
+
+                                    //- 1st
+                                    .eduCon
+                                        div
+                                            span.edu-school london university
+                                        div
+                                            span.edu-degree bachelor
+                                            span.edu-split in
+                                            span.edu-field computer science
+                                            span.edu-grade 
+                                        div
+                                            span.edu-period Year - Year
+
+                                //- exper section
+                                .experP
+
+                                    h2 experience
+
+                                    //- 1st
+                                    .experCon
+                                        div
+                                            span.exper-role web designer
+                                            span.exper-period Month Year - Month Year
+                                        div
+                                            span.exper-firm facebook
+                                        div
+                                            p.exper-desc Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+                                //- contact section
+                                div(class="contactP contactOpt")
+
+                                    h2 contact
+
+                                    //- 1st
+                                    .contactCon
+                                        ul
+                                            li #[span.headP website:] #[span.websiteP www.domain.com]
+                                            li #[span.headP linkedin:] #[span.linkedinP linkedin.com/in/user]
+                                            li #[span.headP twitter:] #[span.twitterP twitter.com/user]
+                                            li #[span.headP behance:] #[span.behanceP behance.net/user]
+                                            li #[span.headP dribbble:] #[span.dribbbleP dribbble.com/user]
+                                            li #[span.headP github:] #[span.githubP github.com/user]
+                                            li #[span.headP stackoverflow:] #[span.stackP stackoverflow.com/u/123456]
+
+                    // design 2
+                    div(class="page design_2")
+                        //- left 
+                        .leftCol
+
+                            //- avatar
+                            .imgP
+                                .innerImgP
+
+                            //- name
+                            .nameP
+                                span.firstNameP john
+                                span.lastNameP doe
+
+                            //- role
+                            .jobP web designer
+
+                            //- location
+                            .locationPWrapper
+                                span.locationPIcon
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path d="M256 0C153.755 0 70.573 83.182 70.573 185.426c0 126.888 165.94 313.167 173.004 321.035 6.636 7.39 18.222 7.378 24.846 0 7.065-7.868 173.004-194.147 173.004-321.035C441.425 83.182 358.244 0 256 0zm0 278.72c-51.442 0-93.292-41.85-93.292-93.293S204.56 92.134 256 92.134s93.29 41.85 93.29 93.293S307.44 278.72 256 278.72z"/>
+                                    </svg>
+
+                                span.locationP London, United Kingdom
+
+                            //- about me
+                            .lowerProfileP
+                                h1 about me
+                                p.desc Hello, I'm john doe, I'm a professional web designer with 2 years of experience.
+
+                            //- personal skills
+                            .personalP
+                                h1 personal skills
+                                .personal-itemsP
+
+                            //- contact 
+                            .contactP
+                                h1 contact
+
+                                ul
+                                    li 
+                                        span.iconPCon
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zm-16.39 307.37l-15 65A15 15 0 0 1 354 416C194 416 64 286.29 64 126a15.7 15.7 0 0 1 11.63-14.61l65-15A18.23 18.23 0 0 1 144 96a16.27 16.27 0 0 1 13.79 9.09l30 70A17.9 17.9 0 0 1 189 181a17 17 0 0 1-5.5 11.61l-37.89 31a231.91 231.91 0 0 0 110.78 110.78l31-37.89A17 17 0 0 1 299 291a17.85 17.85 0 0 1 5.91 1.21l70 30A16.25 16.25 0 0 1 384 336a17.41 17.41 0 0 1-.39 3.37z"/>
+                                            </svg>
+                                        span.phoneP xxxx xxx xxxx 
+                                        span.whatsP (has whatsapp)
+
+                                    li 
+                                        span.iconPCon
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM178.117 262.104C87.429 196.287 88.353 196.121 64 177.167V152c0-13.255 10.745-24 24-24h272c13.255 0 24 10.745 24 24v25.167c-24.371 18.969-23.434 19.124-114.117 84.938-10.5 7.655-31.392 26.12-45.883 25.894-14.503.218-35.367-18.227-45.883-25.895zM384 217.775V360c0 13.255-10.745 24-24 24H88c-13.255 0-24-10.745-24-24V217.775c13.958 10.794 33.329 25.236 95.303 70.214 14.162 10.341 37.975 32.145 64.694 32.01 26.887.134 51.037-22.041 64.72-32.025 61.958-44.965 81.325-59.406 95.283-70.199z"/>
+                                            </svg>
+                                        span.emailP example@email.com
+
+                                    li 
+                                        span.iconPCon
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/>
+                                            </svg>
+                                        span.websiteP www.domain.com
+
+                                    li 
+                                        span.iconPCon
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+                                            </svg>
+                                        span.linkedinP linkedin.com/in/user
+
+                                    li 
+                                        span.iconPCon
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"/>
+                                            </svg>
+                                        span.twitterP twitter.com/user
+
+                                    li 
+                                        span.iconPCon
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path d="M186.5 293c0 19.3-14 25.4-31.2 25.4h-45.1v-52.9h46c18.6.1 30.3 7.8 30.3 27.5zm-7.7-82.3c0-17.7-13.7-21.9-28.9-21.9h-39.6v44.8H153c15.1 0 25.8-6.6 25.8-22.9zm132.3 23.2c-18.3 0-30.5 11.4-31.7 29.7h62.2c-1.7-18.5-11.3-29.7-30.5-29.7zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zM271.7 185h77.8v-18.9h-77.8V185zm-43 110.3c0-24.1-11.4-44.9-35-51.6 17.2-8.2 26.2-17.7 26.2-37 0-38.2-28.5-47.5-61.4-47.5H68v192h93.1c34.9-.2 67.6-16.9 67.6-55.9zM380 280.5c0-41.1-24.1-75.4-67.6-75.4-42.4 0-71.1 31.8-71.1 73.6 0 43.3 27.3 73 71.1 73 33.2 0 54.7-14.9 65.1-46.8h-33.7c-3.7 11.9-18.6 18.1-30.2 18.1-22.4 0-34.1-13.1-34.1-35.3h100.2c.1-2.3.3-4.8.3-7.2z"/>
+                                            </svg>
+                                        span.behanceP behance.net/user
+
+                                    li 
+                                        span.iconPCon
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path d="M90.2 228.2c8.9-42.4 37.4-77.7 75.7-95.7 3.6 4.9 28 38.8 50.7 79-64 17-120.3 16.8-126.4 16.7zM314.6 154c-33.6-29.8-79.3-41.1-122.6-30.6 3.8 5.1 28.6 38.9 51 80 48.6-18.3 69.1-45.9 71.6-49.4zM140.1 364c40.5 31.6 93.3 36.7 137.3 18-2-12-10-53.8-29.2-103.6-55.1 18.8-93.8 56.4-108.1 85.6zm98.8-108.2c-3.4-7.8-7.2-15.5-11.1-23.2C159.6 253 93.4 252.2 87.4 252c0 1.4-.1 2.8-.1 4.2 0 35.1 13.3 67.1 35.1 91.4 22.2-37.9 67.1-77.9 116.5-91.8zm34.9 16.3c17.9 49.1 25.1 89.1 26.5 97.4 30.7-20.7 52.5-53.6 58.6-91.6-4.6-1.5-42.3-12.7-85.1-5.8zm-20.3-48.4c4.8 9.8 8.3 17.8 12 26.8 45.5-5.7 90.7 3.4 95.2 4.4-.3-32.3-11.8-61.9-30.9-85.1-2.9 3.9-25.8 33.2-76.3 53.9zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-64 176c0-88.2-71.8-160-160-160S64 167.8 64 256s71.8 160 160 160 160-71.8 160-160z"/>
+                                            </svg>
+                                        span.dribbbleP dribbble.com/user
+
+                                    li 
+                                        span.iconPCon
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z"/>
+                                            </svg>
+                                        span.githubP github.com/user
+
+                                    li 
+                                        span.iconPCon
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                <path d="M290.7 311L95 269.7 86.8 309l195.7 41zm51-87L188.2 95.7l-25.5 30.8 153.5 128.3zm-31.2 39.7L129.2 179l-16.7 36.5L293.7 300zM262 32l-32 24 119.3 160.3 32-24zm20.5 328h-200v39.7h200zm39.7 80H42.7V320h-40v160h359.5V320h-40z"/>
+                                            </svg>
+                                        span.stackP stackoverflow.com/u/123456
+
+                        //- right
+                        .rightCol
+
+                            //- education
+                            .eduP
+                                .expHead
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 398.97 398.97">
+                                        <path d="M225.092 276.586c-7.1 4.355-16.195 6.754-25.607 6.754s-18.506-2.398-25.607-6.754L57.946 205.484s-10.464-6.414-10.464 8.116v71c0 37.402 68.053 77.723 152 77.723s152-40.32 152-77.723v-75.003c0-11.663-7.44-5.964-7.44-5.964l-118.95 72.953zM392.3 148.927c8.908-5.463 8.908-14.403 0-19.867l-176.6-88.315c-8.908-5.463-23.485-5.463-32.393 0L6.68 129.06c-8.908 5.463-8.908 14.403 0 19.867l176.607 108.315c8.908 5.463 23.485 5.463 32.393 0m169.305 52.233V189.85s.083-5.666-3.28-3.795c-2.697 1.5-9.308 5.186-11.637 7.212-2.7 2.337-2.083 7.583-2.083 7.583v108.625c0 1.542-1.325 2.278-1.957 2.65-6.105 3.6-10.2 10.214-10.2 17.8a20.67 20.67 0 0 0 20.667 20.667 20.67 20.67 0 0 0 20.666-20.667c0-7.624-4.135-14.27-10.28-17.85-.6-.356-1.888-1.068-1.888-2.6z"/>
+                                    </svg>
+                                    span education
+
+                                //- 1st
+                                .eduCon
+                                    div
+                                        span.edu-school london university
+                                    div
+                                        span.edu-degree bachelor
+                                        span.edu-split in
+                                        span.edu-field computer science
+                                        span.edu-grade 
+                                    div
+                                        span.edu-period Year - Year
+
+                            //- experience
+                            .experP
+                                .expHead
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -31 512 512">
+                                        <path d="M211 240h90v30h-90zm204.38 30H331v15c0 8.3-6.7 15-15 15H196c-8.3 0-15-6.7-15-15v-15H96.62a44.95 44.95 0 0 1-42.687-30.762L0 77.4V405c0 24.813 20.188 45 45 45h422c24.813 0 45-20.187 45-45V77.422l-53.937 161.816A44.94 44.94 0 0 1 415.379 270zM316 0H196c-24.812 0-45 20.188-45 45v15H25.8l56.574 169.746C84.434 235.883 90.16 240 96.62 240H181v-15c0-8.3 6.7-15 15-15h120c8.3 0 15 6.7 15 15v15h84.38c6.46 0 12.188-4.117 14.238-10.254L486.195 60H361V45c0-24.812-20.187-45-45-45zM181 60V45c0-8.277 6.723-15 15-15h120c8.277 0 15 6.723 15 15v15zm0 0"/>
+                                    </svg>
+                                    span work experience
+                                .experCon
+                                    div
+                                        span.exper-role web designer
+                                        span.exper-period Month Year - Month Year
+                                    div
+                                        span.exper-firm facebook
+                                    div
+                                        p.exper-desc Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+                            //- technical skills
+                            .techP
+                                .expHead
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+                                        <path d="M149.996 0C67.157 0 .001 67.16.001 149.997S67.157 300 149.996 300 300 232.837 300 149.997 232.835 0 149.996 0zM63.928 106.078H194.8v15.562H63.928v-15.562zm0 71.63H194.8v15.562H63.928v-15.562zm172.144 51.374H63.928V213.52h172.144v15.562zm0-71.627H63.928v-15.562h172.144v15.562zm0-71.627H63.928V70.265h172.144v15.562z"/>
+                                    </svg>
+                                    span technical skills
+
+                                .tech-itemsP
+                                    span html
+                                    span css
+                                    span javascript
+
+                        div(style="clear:both;")
+
+                    // design 3
+                    div(class="page design_3")
+                        //- left 
+                        .leftCol
+
+                            //- header
+                            .headerPCon
+                                //- avatar
+                                .imgP
+                                    .innerImgP
+
+                                .name-job-con
+                                    //- name
+                                    .nameP
+                                        span.firstNameP john
+                                        span.lastNameP doe
+
+                                    //- role
+                                    .jobP web designer
+
+                            //- about me
+                            .lowerProfileP
+                                h1 profile
+                                p.desc Hello, I'm john doe, I'm a professional web designer with 2 years of experience.
+
+                            //- education
+                            .eduP
+                                .expHead
+                                    span education
+
+                                //- 1st
+                                .eduCon
+                                    div
+                                        span.edu-school london university
+                                    div
+                                        span.edu-degree bachelor
+                                        span.edu-split in
+                                        span.edu-field computer science
+                                        span.edu-grade 
+                                    div
+                                        span.edu-period Year - Year
+
+                            //- experience
+                            .experP
+                                .expHead
+                                    span work experience
+
+                                .experCon
+                                    div
+                                        span.exper-role web designer
+                                        span.exper-period Month Year - Month Year
+                                    div
+                                        span.exper-firm facebook
+                                    div
+                                        p.exper-desc Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+                        //- right
+                        .rightCol
+
+                            //- contact 
+                            .contactP
+                                h1 contact
+
+                                ul
+                                    li
+                                        span.locationP London, United Kingdom
+
+                                    li 
+                                        span.phoneP xxxx xxx xxxx 
+                                        span.whatsP (has whatsapp)
+
+                                    li 
+                                        span.emailP example@email.com
+
+                                    li 
+                                        span.linkedinP linkedin.com/in/user
+
+                                    li 
+                                        span.websiteP www.domain.com
+
+                                    li 
+                                        span.twitterP twitter.com/user
+
+                                    li 
+                                        span.behanceP behance.net/user
+
+                                    li 
+                                        span.dribbbleP dribbble.com/user
+
+                                    li 
+                                        span.githubP github.com/user
+
+                                    li 
+                                        span.stackP stackoverflow.com/u/123456
+
+                            //- technical skills
+                            .techP
+                                .expHead
+                                    span technical skills
+
+                                .tech-itemsP
+                                    span html
+                                    span css
+                                    span javascript
+
+                            //- personal skills
+                            .personalP
+                                h1 personal skills
+                                .personal-itemsP
+
+                        div(style="clear:both;")
+
+                // end page
+
+        // !END MAIN WRAPPER
+
+        // start footer
+        include ../layout/footer
+        // end footer
+
+        //- START JS
+        include ../components/script
+        //- END JS

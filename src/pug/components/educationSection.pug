@@ -1,0 +1,54 @@
+div(class="education formSection")
+    
+    // heading
+    h1 education
+
+    div(class="innerEduCon innerEduCon0")
+        // school
+        div(class="schoolCon formItem")
+            label school #[span.required *]
+            .inputCon
+                input(type="text", class="school school0", placeholder="e.g. Cairo university, Udacity", pattern="[\\w|\\W|\\s]{4,40}", autocomplete="off", required)
+                span(class="validity")
+            .validityTips school must be 4-40 characters in length.
+
+        // degree
+        div(class="degreeCon formItem")
+            label degree #[span.required *]
+            .inputCon
+                input(type="text", class="degree degree0", placeholder="e.g. Bachelor, Intern, Course", pattern="[\\w|\\W|\\s]{3,20}", autocomplete="off", required)
+                span(class="validity")
+            .validityTips degree must be 3-20 characters in length.
+
+        // field
+        div(class="fieldCon formItem")
+            label field of study #[span.required *]
+            .inputCon
+                input(type="text", class="major major0", placeholder="e.g. Commerce, Web Design", pattern="[\\w|\\W|\\s]{2,50}", autocomplete="off", required)
+                span(class="validity")
+            .validityTips field must be 2-50 characters in length.
+
+        // start year
+        div(class="startYearCon formItem")
+            label start year #[span.required *]
+            select(required, class="sY sY0")
+                option(value, disabled, selected) Year
+                - for(var i = 2020; i >= 1961; i--)
+                    option(value=i)= i
+
+        // end year
+        div(class="endYearCon formItem")
+            label end year #[span.required *]
+            select(required, class="eY eY0")
+                option(value, disabled, selected) Year
+                - for(var i = 2020; i >= 1961; i--)
+                    option(value=i)= i
+
+        // grade 
+        div(class="gradeCon formItem")
+            label grade
+            .inputCon
+                input(type="text", class="grade grade0", placeholder="e.g. Good, 80%", autocomplete="off")
+
+    // add other education
+    button(type="button", id="addEdu") add more

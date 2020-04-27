@@ -1,0 +1,130 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: $borderColor;
+    z-index: 20;
+
+    #headerCon {
+        width: 100%;
+        height: calc(100vh - 50px);
+
+        #nav2 {
+            width: 100%;
+            min-height: 80px;
+            background-color: $white;
+            box-shadow: 0 1px 3px 0px $shadow;
+
+            #logo2 {
+                height: 50px;
+                float: $floatLeft;
+                margin-top: 15px;
+                margin-left: 20px;
+
+                a {
+                    display: block;
+                    height: 100%;
+                    padding: 0;
+                    text-decoration: none;
+                    color: $mainTextColor;
+
+                    img {
+                        margin: 5px 0;
+                        height: 40px;
+                        vertical-align: bottom;
+                    }
+
+                    span {
+                        height: 100%;
+                        line-height: 50px;
+                        margin-left: 10px;
+                        font-family: 'Lato', Helvetica, Arial, sans-serif;
+
+                        font: {
+                            size: 20px;
+                            weight: bold;
+                        }
+                    }
+                }
+            }
+
+            #donate2 {
+                height: 40px;
+                float: $floatRight;
+                margin-top: 20px;
+                margin-right: 20px;
+
+                a {
+                    max-width: 100px;
+                    display: block;
+                    margin: auto;
+                    line-height: 40px;
+                    box-sizing: content-box;
+                    padding: 0px 10px;
+                    background-color: $blue;
+                    text-decoration: none;
+                    color: $white;
+                    text-align: center;
+                    text-transform: capitalize;
+                    font-weight: 600;
+                    border-radius: $radius;
+                    transition: background 0.3s ease-in-out;
+
+                    &:hover {
+                        background-color: $subBlue;
+                    }
+                }
+            }
+
+        }
+
+        #getStartedCon {
+            position: relative;
+            width: calc(100% - 40px);
+            top: calc(50% - 40px);
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            margin: 0 auto;
+
+            h1 {
+                text-align: center;
+                font-size: 25px;
+                font-family: 'Lato', Helvetica, Arial, sans-serif;
+
+                &::first-letter {
+                    text-transform: uppercase;
+                }
+            }
+
+            p {
+                line-height: 25px;
+                font-weight: bold;
+                color: $subTextColor;
+                margin-top: 20px;
+                text-align: center;
+
+                &::first-letter {
+                    text-transform: uppercase;
+                }
+            }
+
+            button {
+                width: auto;
+                height: auto;
+                display: block;
+                padding: 10px 20px;
+                margin: 40px auto auto;
+                font-size: 20px;
+                font-weight: bold;
+                transition: background 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: $subBlue;
+                }
+            }
+
+        }
+    }
+}
