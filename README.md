@@ -5,7 +5,7 @@ Create professional resumes, CV online for free, in minutes. Simply fill in your
 ## Features
 * Preview of Finished CV
 * Slider
-* Simple Form for fill out your data
+* Simple Form for filling out your data
 * Pure Code
 * Animations
 * Elegant Design
