@@ -24,6 +24,8 @@ Google Font API
 
 * HTML5
 * CSS3
+* Sass
+* Pugjs
 * Vanilla JS - OOP
 * RWD - Grid System
 * Gulp
